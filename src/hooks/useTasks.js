@@ -19,7 +19,7 @@ export function useTasks() {
 
       return await pb.collection("tasks").getFullList({
         filter: `owner="${user.id}"`,
-        sort: "completed",
+        sort: "",
       });
     },
     enabled: !!user?.id,
