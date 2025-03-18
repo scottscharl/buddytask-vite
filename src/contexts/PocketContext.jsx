@@ -44,6 +44,7 @@ export const PocketProvider = ({ children }) => {
       throw error;
     }
   }
+
   async function login(email, password) {
     try {
       return await pb.collection("users").authWithPassword(email, password);
@@ -56,6 +57,7 @@ export const PocketProvider = ({ children }) => {
 
   function logout() {
     pb.authStore.clear();
+    // No navigation here - we'll handle it in the component
   }
 
   async function refreshSession() {

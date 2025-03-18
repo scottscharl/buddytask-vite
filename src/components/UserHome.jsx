@@ -36,6 +36,11 @@ export default function UserHome() {
 
   return (
     <div className="flex flex-col space-y-4">
+      {/* Page Title */}
+      {/* <div className="mb-6">
+        <h1 className="text-2xl font-bold text-gray-800">Your Partnership</h1>
+      </div> */}
+
       {/* Main content container with tab and content styling */}
       <div className="overflow-hidden rounded-md shadow-sm">
         {/* Tab navigation */}

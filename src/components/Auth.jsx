@@ -23,10 +23,12 @@ export default function Auth() {
       if (mode === "login") {
         const res = await login(email, password);
         console.log(await res);
+        navigate("/user"); // Navigate to user page after login
       }
       if (mode === "signup") {
         const res = await register(email, password, passwordConfirm);
         console.log(await res);
+        navigate("/user"); // Navigate to user page after signup
       }
     } catch (error) {
       console.error("Auth error:", error);
@@ -36,7 +38,7 @@ export default function Auth() {
   }
 
   return (
-    <div className="p-6 bg-white rounded-md shadow-sm">
+    <div className="w-full max-w-md p-6 mx-auto bg-white rounded-md shadow-sm">
       <h1 className="mb-6 text-2xl font-bold text-gray-800">
         {mode === "login" ? "Log In" : "Create Account"}
       </h1>
@@ -95,11 +97,11 @@ export default function Auth() {
           </div>
         )}
 
-        <div className="flex flex-row items-center justify-between mt-6">
+        <div className="flex flex-col mt-6 space-y-4 sm:flex-row sm:items-center sm:justify-between sm:space-y-0">
           <Button
             type="submit"
             variant="primary"
-            className="px-4 py-2 font-medium text-white transition-colors bg-blue-600 rounded hover:bg-blue-700"
+            className="w-full px-4 py-2 font-medium text-white transition-colors bg-blue-600 rounded sm:w-auto hover:bg-blue-700"
             disabled={isSubmitting}
           >
             {isSubmitting

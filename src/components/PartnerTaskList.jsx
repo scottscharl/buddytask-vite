@@ -164,14 +164,14 @@ export default function PartnerTaskList({ colorScheme = "blue" }) {
                       task.completed ? "line-through text-gray-500" : ""
                     }`}
                   >
-                    <span className="flex items-center">
-                      {task.description}
+                    <div className="flex items-center">
+                      <span className="text-base">{task.description}</span>
                       {getRelativeTime(task.created) && !task.completed && (
-                        <span className="inline-flex items-center justify-center px-1.5 py-0.5 ml-2 text-xs text-gray-500 bg-gray-100 rounded-full">
+                        <span className="inline-flex items-center justify-center px-1.5 py-0.5 ml-2 text-xs text-gray-500 bg-gray-100 rounded-full whitespace-nowrap flex-shrink-0">
                           {getRelativeTime(task.created)}
                         </span>
                       )}
-                    </span>
+                    </div>
                   </div>
                 </div>
               </div>
