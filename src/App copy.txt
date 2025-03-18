@@ -1,0 +1,42 @@
+import React from "react";
+import Section from "./components/Section";
+
+import "./App.css";
+
+function App() {
+  const [userToggle, setUserToggle] = React.useState("user");
+
+  function toggleUser() {
+    setUserToggle(!userToggle);
+  }
+  return (
+    <>
+      <nav className="flex flex-row items-center justify-between p-4 bg-blue-200">
+        <div className="px-4 py-2 bg-pink-200">BuddyTask</div>
+        <button onClick={toggleUser}>toggle</button>
+        <div id="login" className="px-4 py-2 align-middle bg-pink-200">
+          login/logout here
+        </div>
+      </nav>
+      <h1 className="my-4">Buddy Task</h1>
+      {userToggle ? (
+        <Section className="flex flex-col mx-auto space-y-2 w-2xl">
+          User
+        </Section>
+      ) : (
+        <Section className="flex flex-col mx-auto space-y-2 w-2xl">
+          Partner
+          {/* {["task1", "task2"].map((task) => ( 
+            <div className="flex flex-row gap-2 bg-green-200">
+              <div>{task}</div>
+              <button>edit</button>
+            </div>
+          ))}*/}
+        </Section>
+      )}
+      <footer className="fixed bottom-0 w-full p-4 bg-gray-200">Footer</footer>
+    </>
+  );
+}
+
+export default App;

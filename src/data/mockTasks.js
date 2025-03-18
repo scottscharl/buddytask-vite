@@ -1,0 +1,36 @@
+const mockTasks = [
+  {
+    id: "t7jd82hvn5wlxep",
+    collectionId: "n8u43hedu2elcd8",
+    collectionName: "tasks",
+    created: "2025-02-15 09:23:45.321Z",
+    updated: "2025-03-12 14:30:22.156Z",
+    starred: true,
+    description: "Finish quarterly report",
+    completed: false,
+    owner: "us72h5bxp3qzk9j",
+  },
+  {
+    id: "b9k63fsmr4exyaw",
+    collectionId: "n8u43hedu2elcd8",
+    collectionName: "tasks",
+    created: "2025-03-01 16:45:12.789Z",
+    updated: "2025-03-10 08:15:33.567Z",
+    starred: false,
+    description: "Schedule team meeting",
+    completed: true,
+    owner: "us72h5bxp3qzk9j",
+  },
+  {
+    id: "r2v56gpqn8sxtde",
+    collectionId: "n8u43hedu2elcd8",
+    collectionName: "tasks",
+    created: "2025-03-14 11:05:39.432Z",
+    updated: "2025-03-14 11:05:39.432Z",
+    starred: true,
+    description: "Prepare presentation slides",
+    completed: false,
+    owner: "us72h5bxp3qzk9j",
+  },
+];
+export default mockTasks;
