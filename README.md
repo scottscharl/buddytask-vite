@@ -88,10 +88,7 @@ buddytask/
 │   ├── components/     # Reusable UI components
 │   ├── contexts/       # React contexts (including PocketContext)
 │   ├── hooks/          # Custom React hooks (including usePartnerTasks)
-│   ├── lib/            # Utility functions and PocketBase client
-│   ├── pages/          # Main application pages
-│   ├── routes/         # Route definitions
-│   ├── App.jsx         # Main application component
+│   ├── App.jsx         # Main application component & routes
 │   └── main.jsx        # Application entry point
 ├── .env                # Environment variables
 ├── package.json        # Project dependencies and scripts
