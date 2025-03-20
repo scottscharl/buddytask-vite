@@ -179,9 +179,7 @@ export default function TaskList() {
     <div>
       {/* Show when waiting for user authentication */}
       {!isLoading && tasks.length === 0 && !isError && !showAddForm && (
-        <div className="p-4 text-center text-gray-500">
-          Ready to load tasks...
-        </div>
+        <div className="p-4 text-center text-gray-500">No tasks</div>
       )}
 
       {/* Show during loading */}
@@ -204,8 +202,8 @@ export default function TaskList() {
         </div>
       )}
 
-      {/* Show when tasks are loaded successfully or when adding a new task */}
-      {!isLoading && !isError && (tasks.length > 0 || showAddForm) && (
+      {/* Task list section */}
+      {!isLoading && !isError && tasks.length > 0 && (
         <div className="rounded-md">
           <div>
             {tasks.map((task) => (
@@ -315,57 +313,59 @@ export default function TaskList() {
               </div>
             ))}
           </div>
+        </div>
+      )}
 
-          {/* Add task form/button with inline display */}
-          <div className="mt-6 md:mt-4">
-            {showAddForm ? (
-              <form onSubmit={handleAddTask} className="w-full">
-                <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center">
-                  <input
-                    ref={inputRef}
-                    type="text"
-                    value={newTaskDescription}
-                    onChange={(e) => setNewTaskDescription(e.target.value)}
-                    placeholder="Task description"
-                    className="w-full p-3 text-base transition-colors border border-gray-300 rounded-lg outline-none md:p-2 md:rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    disabled={isCreating}
-                    aria-label="New task description"
-                  />
-                  <div className="flex justify-end w-full gap-2 sm:w-auto sm:ml-auto">
-                    <Button
-                      type="button"
-                      onClick={() => setShowAddForm(false)}
-                      variant="secondary"
-                      className="w-full px-4 py-3 text-base font-medium text-gray-600 transition-colors bg-white border border-gray-300 rounded-lg md:px-3 md:py-2 md:rounded md:w-auto hover:bg-gray-50"
-                      aria-label="Cancel adding new task"
-                    >
-                      Cancel
-                    </Button>
-                    <Button
-                      variant="primary"
-                      type="submit"
-                      disabled={isCreating || !newTaskDescription.trim()}
-                      className="w-full px-4 py-3 text-base font-medium text-white transition-colors bg-blue-600 rounded-lg md:px-3 md:py-2 md:rounded md:w-auto hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
-                      aria-label="Add new task"
-                    >
-                      {isCreating ? "Adding..." : "Add"}
-                    </Button>
-                  </div>
+      {/* Add task form/button - Now separate from the task list */}
+      {!isLoading && !isError && (
+        <div className="mt-6 md:mt-4">
+          {showAddForm ? (
+            <form onSubmit={handleAddTask} className="w-full">
+              <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center">
+                <input
+                  ref={inputRef}
+                  type="text"
+                  value={newTaskDescription}
+                  onChange={(e) => setNewTaskDescription(e.target.value)}
+                  placeholder="Task description"
+                  className="w-full p-3 text-base transition-colors border border-gray-300 rounded-lg outline-none md:p-2 md:rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  disabled={isCreating}
+                  aria-label="New task description"
+                />
+                <div className="flex justify-end w-full gap-2 sm:w-auto sm:ml-auto">
+                  <Button
+                    type="button"
+                    onClick={() => setShowAddForm(false)}
+                    variant="secondary"
+                    className="w-full px-4 py-3 text-base font-medium text-gray-600 transition-colors bg-white border border-gray-300 rounded-lg md:px-3 md:py-2 md:rounded md:w-auto hover:bg-gray-50"
+                    aria-label="Cancel adding new task"
+                  >
+                    Cancel
+                  </Button>
+                  <Button
+                    variant="primary"
+                    type="submit"
+                    disabled={isCreating || !newTaskDescription.trim()}
+                    className="w-full px-4 py-3 text-base font-medium text-white transition-colors bg-blue-600 rounded-lg md:px-3 md:py-2 md:rounded md:w-auto hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
+                    aria-label="Add new task"
+                  >
+                    {isCreating ? "Adding..." : "Add"}
+                  </Button>
                 </div>
-              </form>
-            ) : (
-              <Button
-                onClick={() => setShowAddForm(true)}
-                className="flex items-center justify-center w-full gap-2 px-4 py-3 text-base font-medium text-gray-600 transition-colors bg-white border border-gray-500 border-dashed rounded-lg md:py-2 md:rounded hover:bg-gray-100 hover:cursor-pointer"
-                aria-label="Show add task form"
-              >
-                <span>Add Task</span>
-                <kbd className="hidden px-1.5 py-0.5 ml-1 text-xs font-semibold text-gray-500 border border-gray-400 rounded shadow-sm md:inline-block">
-                  T
-                </kbd>
-              </Button>
-            )}
-          </div>
+              </div>
+            </form>
+          ) : (
+            <Button
+              onClick={() => setShowAddForm(true)}
+              className="flex items-center justify-center w-full gap-2 px-4 py-3 text-base font-medium text-gray-600 transition-colors bg-white border border-gray-500 border-dashed rounded-lg md:py-2 md:rounded hover:bg-gray-100 hover:cursor-pointer"
+              aria-label="Show add task form"
+            >
+              <span>Add Task</span>
+              <kbd className="hidden px-1.5 py-0.5 ml-1 text-xs font-semibold text-gray-500 border border-gray-400 rounded shadow-sm md:inline-block">
+                T
+              </kbd>
+            </Button>
+          )}
         </div>
       )}
     </div>
